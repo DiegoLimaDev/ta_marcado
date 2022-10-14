@@ -3,6 +3,7 @@ import { theme } from '../utils/theme';
 import styled from 'styled-components';
 
 import Topbar from '../components/Topbar';
+import Footer from '../components/Footer';
 import { useContext } from 'react';
 import { GlobalContext } from '../utils/GlobalContext';
 import InitialPage from './Initial';
@@ -19,6 +20,7 @@ const Home = () => {
       ) : page === 'Protocol' ? (
         <ProtocolPage />
       ) : null}
+      <Footer />
     </div>
   );
 };

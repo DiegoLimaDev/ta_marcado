@@ -9,7 +9,7 @@ import { GlobalContext } from '../utils/GlobalContext';
 
 const Container = styled.div`
   background-color: ${theme.colors.white};
-  margin: -1rem -1rem 0 -1rem;
+  /* margin: -1rem -1rem 0 -1rem; */
   padding: 2rem 2rem 0 2rem;
   min-height: 6rem;
 `;
@@ -23,6 +23,7 @@ const Row = styled.div`
 const Links = styled.div`
   color: ${theme.colors.darkBlue};
   font-size: ${theme.sizes.size2};
+  font-weight: bold;
   width: auto;
   cursor: pointer;
 

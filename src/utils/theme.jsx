@@ -7,6 +7,7 @@ export const theme = {
     darkBlue: '#234A6B',
     lightBlue: '#B6DDF2',
     white: '#FCFCFC',
+    auxiliar: '#E5E5E5',
   },
   font: '"Trispace", sans-serif',
   fontRem: '62.5%',

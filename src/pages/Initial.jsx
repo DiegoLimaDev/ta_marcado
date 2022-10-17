@@ -4,11 +4,14 @@ import { theme } from '../utils/theme';
 
 import schedule from '../assets/images/schedule.svg';
 import { Button } from '../components/Buttons';
+import { useContext } from 'react';
+import { GlobalContext } from '../utils/GlobalContext';
 // import Footer from '../components/Footer';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
   margin: 0 -0.5rem -0.5rem -0.5rem;
+  padding: 2rem 2rem -1rem 2rem;
   min-height: 87vh;
 `;
 
@@ -20,10 +23,13 @@ const Row = styled.div`
 
 const Column = styled.div`
   flex-direction: column;
+`;
 
-  .centerButtons {
-    margin-left: 15%;
-  }
+const CenterButtons = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `;
 
 const Text = styled.p`
@@ -47,6 +53,8 @@ const Image = styled.img`
 `;
 
 const InitialPage = () => {
+  const [page, setPage] = useContext(GlobalContext);
+
   return (
     <Container>
       <Row>
@@ -55,14 +63,19 @@ const InitialPage = () => {
             <Text size="medium">Bem vindo(a) ao</Text>
             <Text>TÁ MARCADO</Text>
           </TextAlign>
-          <div className="centerButtons">
-            <Button height="15" width="30" marginR="5">
+          <CenterButtons>
+            <Button
+              height="15"
+              width="30"
+              marginR="5"
+              onClick={() => setPage('schedulingPage')}
+            >
               <Text size="small">Agendar</Text>
             </Button>
             <Button height="15" width="30" marginL="5">
               <Text size="small">Cancelamento</Text>
             </Button>
-          </div>
+          </CenterButtons>
         </Column>
         <Image src={schedule} />
       </Row>

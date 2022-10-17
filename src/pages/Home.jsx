@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '../utils/GlobalContext';
 import InitialPage from './Initial';
 import ProtocolPage from './Protocol';
+import SchedulingPage from './Scheduling';
 
 const Home = () => {
   const [page, setPage] = useContext(GlobalContext);
@@ -19,6 +20,8 @@ const Home = () => {
         <InitialPage />
       ) : page === 'Protocol' ? (
         <ProtocolPage />
+      ) : page === 'schedulingPage' ? (
+        <SchedulingPage />
       ) : null}
       <Footer />
     </div>

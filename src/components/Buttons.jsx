@@ -10,12 +10,13 @@ const ButtonStyle = styled.button`
     border-radius: 200px;
     width: ${width}%;
     height: ${height}%;
-    margin-top: ${marginT}rem;
-    margin-right: ${marginR}rem;
-    margin-bottom: ${marginB}rem;
-    margin-left: ${marginL}rem;
+    margin-top: ${marginT};
+    margin-right: ${marginR};
+    margin-bottom: ${marginB};
+    margin-left: ${marginL};
     border: 0 solid;
     cursor: pointer;
+    display: block;
 
     :hover {
       transform: scale(1.2);

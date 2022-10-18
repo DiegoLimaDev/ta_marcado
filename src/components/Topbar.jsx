@@ -2,10 +2,9 @@ import React from 'react';
 import { theme } from '../utils/theme';
 import styled from 'styled-components';
 
-import { useContext } from 'react';
 import logo from '../assets/images/logo.jpeg';
 import logopd from '../assets/images/logo_pd.svg';
-import { GlobalContext } from '../utils/GlobalContext';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${theme.colors.white};
@@ -70,11 +69,13 @@ const Box2 = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  .LinkDecor {
+    text-decoration: none;
+  }
 `;
 
 const Topbar = () => {
-  const [page, setPage] = useContext(GlobalContext);
-
   return (
     <Container>
       <Row>
@@ -83,10 +84,10 @@ const Topbar = () => {
           <Images src={logopd} />
         </Box1>
         <Box2>
-          <Links onClick={() => setPage('Home')}>HOME</Links>
-          <Links onClick={() => setPage('Protocol')}>
-            ACOMPANHAR PROTOCOLO
-          </Links>
+          <Link to="/" className="LinkDecor">
+            <Links>HOME</Links>
+          </Link>
+          <Links>ACOMPANHAR PROTOCOLO</Links>
           <Links>HOME</Links>
           <Links>SOBRE O PROJETO</Links>
         </Box2>

@@ -4,15 +4,17 @@ import { theme } from '../utils/theme';
 
 import schedule from '../assets/images/schedule.svg';
 import { Button } from '../components/Buttons';
-import { useContext } from 'react';
-import { GlobalContext } from '../utils/GlobalContext';
-// import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
   margin: 0 -0.5rem -0.5rem -0.5rem;
   padding: 2rem 2rem -1rem 2rem;
   min-height: 87vh;
+
+  .LinkDecor {
+    text-decoration: none;
+  }
 `;
 
 const Row = styled.div`
@@ -53,8 +55,6 @@ const Image = styled.img`
 `;
 
 const InitialPage = () => {
-  const [page, setPage] = useContext(GlobalContext);
-
   return (
     <Container>
       <Row>
@@ -64,22 +64,18 @@ const InitialPage = () => {
             <Text>TÁ MARCADO</Text>
           </TextAlign>
           <CenterButtons>
-            <Button
-              height="15"
-              width="30"
-              marginR="5"
-              onClick={() => setPage('schedulingPage')}
-            >
-              <Text size="small">Agendar</Text>
+            <Button height="15" width="30" marginR="5rem">
+              <Link to="/schedulingPage" className="LinkDecor">
+                <Text size="small">Agendar</Text>
+              </Link>
             </Button>
-            <Button height="15" width="30" marginL="5">
+            <Button height="15" width="30" marginL="5rem">
               <Text size="small">Cancelamento</Text>
             </Button>
           </CenterButtons>
         </Column>
         <Image src={schedule} />
       </Row>
-      {/* <Footer /> */}
     </Container>
   );
 };

@@ -4,6 +4,9 @@ import { theme } from '../utils/theme';
 
 import diary from '../assets/images/diary.svg';
 import { useState } from 'react';
+import Topbar from '../components/Topbar';
+import Footer from '../components/Footer';
+import { Button } from '../components/Buttons';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
@@ -17,13 +20,16 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 2rem;
 `;
 
 const InsideRow = styled.div`
-  direction: ltr;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+  ${({ checkbox }) => css`
+    direction: ltr;
+    display: flex;
+    width: 100%;
+    justify-content: ${checkbox === 'checkbox' ? 'left' : 'space-between'};
+  `}
 `;
 
 const Column = styled.div`
@@ -40,6 +46,7 @@ const Image = styled.img`
 const Box = styled.div`
   background-color: ${theme.colors.lightBlue};
   width: 50%;
+  box-shadow: 4px 4px 4px 0 #000000;
 `;
 
 const GradientBox = styled.div`
@@ -77,7 +84,15 @@ const Input = styled.input`
   `}
 `;
 
+const ButtonDiv = styled.div`
+  display: block;
+  margin: 0 auto;
+  justify-content: space-around;
+`;
+
 const SchedulingPage = () => {
+  const [remote, setRemote] = useState('');
+  const [reason, setReason] = useState('');
   const [value, setValue] = useState('');
 
   const handlechange = (e) => {
@@ -86,48 +101,161 @@ const SchedulingPage = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Image src={diary} />
-        <Box>
-          <GradientBox>
-            <Text color="title" size="title" align="title">
-              FORMULÁRIO DE AGENDAMENTO
+    <>
+      <Topbar />
+      <Container>
+        <Row>
+          <Image src={diary} />
+          <Box>
+            <GradientBox>
+              <Text color="title" size="title" align="title">
+                FORMULÁRIO DE AGENDAMENTO
+              </Text>
+            </GradientBox>
+            <Forms>
+              <Text>NOME COMPLETO *</Text>
+              <Input type="text" placeholder="Nome" label="Nome" width="100" />
+              <Text>EMAIL *</Text>
+              <Input
+                type="text"
+                placeholder="Email"
+                label="email"
+                width="100"
+              />
+              <InsideRow>
+                <Column>
+                  <Text>CPF *</Text>
+                  <Input
+                    type="text"
+                    placeholder="CPF"
+                    label="CPF"
+                    width="100"
+                    value={value}
+                    onChange={handlechange}
+                  />
+                </Column>
+                <Column>
+                  <Text>TELEFONE *</Text>
+                  <Input
+                    type="text"
+                    placeholder="Telefone"
+                    label="Telefone"
+                    width="100"
+                    value={value}
+                    onChange={handlechange}
+                  />
+                </Column>
+              </InsideRow>
+              <Text>TIPO DE ATENDIMENTO *</Text>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={remote === 'remote' ? true : false}
+                  onClick={() =>
+                    remote !== 'remote' ? setRemote('remote') : setRemote('')
+                  }
+                />
+                <Text>Remoto</Text>
+              </InsideRow>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={remote === 'presential' ? true : false}
+                  onClick={() =>
+                    remote !== 'presential'
+                      ? setRemote('presential')
+                      : setRemote('')
+                  }
+                />
+                <Text>Presencial</Text>
+              </InsideRow>
+              <InsideRow>
+                <Column>
+                  <Text>DATA *</Text>
+                  <Input placeholder="Data" />
+                </Column>
+                <Column>
+                  <Text>HORÁRIO *</Text>
+                  <Input placeholder="Horário" />
+                </Column>
+              </InsideRow>
+              <Text>MOTIVO DO ATENDIMENTO *</Text>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === 'declarations' ? true : false}
+                  onClick={() =>
+                    reason !== 'declarations'
+                      ? setReason('declarations')
+                      : setReason('')
+                  }
+                />
+                <Text>Declarações</Text>
+              </InsideRow>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === 'vem' ? true : false}
+                  onClick={() =>
+                    reason !== 'vem' ? setReason('vem') : setReason('')
+                  }
+                />
+                <Text>VEM</Text>
+              </InsideRow>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === 'studentID' ? true : false}
+                  onClick={() =>
+                    reason !== 'studentID'
+                      ? setReason('studentID')
+                      : setReason('')
+                  }
+                />
+                <Text>Carteria de Estudante</Text>
+              </InsideRow>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === 'siepe' ? true : false}
+                  onClick={() =>
+                    reason !== 'siepe' ? setReason('siepe') : setReason('')
+                  }
+                />
+                <Text>SIEPE</Text>
+              </InsideRow>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === 'others' ? true : false}
+                  onClick={() =>
+                    reason !== 'others' ? setReason('others') : setReason('')
+                  }
+                />
+                <Text>Outros</Text>
+              </InsideRow>
+            </Forms>
+            <ButtonDiv>
+              <Button
+                width="40"
+                height="20"
+                marginB="2rem"
+                marginL="auto"
+                marginR="auto"
+              >
+                <Text color="title" align="title">
+                  Confirmar agendamento
+                </Text>
+              </Button>
+            </ButtonDiv>
+            <Text align="title">
+              CAMPOS COM A SINALIZAÇÃO * SÃO DE PREENCHIMENTO OBRIGATÓRIO
             </Text>
-          </GradientBox>
-          <Forms>
-            <Text>NOME COMPLETO *</Text>
-            <Input type="text" placeholder="Nome" label="Nome" width="100" />
-            <Text>EMAIL *</Text>
-            <Input type="text" placeholder="Email" label="email" width="100" />
-            <InsideRow>
-              <Column>
-                <Text>CPF *</Text>
-                <Input
-                  type="text"
-                  placeholder="CPF"
-                  label="CPF"
-                  width="100"
-                  value={value}
-                  onChange={handlechange}
-                />
-              </Column>
-              <Column>
-                <Text>TELEFONE *</Text>
-                <Input
-                  type="text"
-                  placeholder="Telefone"
-                  label="Telefone"
-                  width="100"
-                  value={value}
-                  onChange={handlechange}
-                />
-              </Column>
-            </InsideRow>
-          </Forms>
-        </Box>
-      </Row>
-    </Container>
+          </Box>
+        </Row>
+      </Container>
+      <Footer />
+    </>
   );
 };
 

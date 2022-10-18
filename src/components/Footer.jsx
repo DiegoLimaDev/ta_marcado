@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import { theme } from '../utils/theme';
 
 const Container = styled.div`
-  bottom: 0;
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 0 auto;
-  width: 99%;
+  margin: 0 -0.5rem -0.5rem -0.5rem;
+  width: auto;
+  background-color: ${theme.colors.secondaryBlue};
 `;
 
 const Box = styled.div`

@@ -5,12 +5,17 @@ import { theme } from '../utils/theme';
 import diary from '../assets/images/diary.svg';
 import { Button } from '../components/Buttons';
 import { ScheduleForm } from '../components/ScheduleForm';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
   margin: 0 -0.5rem -0.5rem -0.5rem;
   padding: 2rem 2rem -1rem 2rem;
   min-height: 87vh;
+
+  .linkDecoration {
+    text-decoration: none;
+  }
 `;
 
 const Row = styled.div`
@@ -78,9 +83,11 @@ const SchedulingPage = () => {
                 marginL="auto"
                 marginR="auto"
               >
-                <Text color="title" align="title">
-                  Confirmar agendamento
-                </Text>
+                <Link to="/scheduleConfirmed" className="linkDecoration">
+                  <Text color="title" align="title">
+                    Confirmar agendamento
+                  </Text>
+                </Link>
               </Button>
             </ButtonDiv>
             <Text align="title">

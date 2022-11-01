@@ -39,7 +39,7 @@ const Input = styled.input`
     border-color: ${theme.colors.darkBlue};
     border-radius: 20px;
     width: ${width}%;
-    padding: 0.2rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
   `}
 `;
 

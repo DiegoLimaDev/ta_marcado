@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 2rem 2rem -1rem 2rem;
   min-height: 87vh;
 
-  .LinkDecor {
+  .LinkDecoration {
     text-decoration: none;
   }
 `;
@@ -65,7 +65,7 @@ const InitialPage = () => {
           </TextAlign>
           <CenterButtons>
             <Button height="15" width="30" marginR="5rem">
-              <Link to="/schedulingPage" className="LinkDecor">
+              <Link to="/schedulingPage" className="LinkDecoration">
                 <Text size="small">Agendar</Text>
               </Link>
             </Button>

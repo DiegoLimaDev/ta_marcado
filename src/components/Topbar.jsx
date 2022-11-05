@@ -70,7 +70,7 @@ const Box2 = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  .LinkDecor {
+  .LinkDecoration {
     text-decoration: none;
   }
 `;
@@ -84,10 +84,12 @@ const Topbar = () => {
           <Images src={logopd} />
         </Box1>
         <Box2>
-          <Link to="/" className="LinkDecor">
+          <Link to="/" className="LinkDecoration">
             <Links>HOME</Links>
           </Link>
-          <Links>ACOMPANHAR PROTOCOLO</Links>
+          <Link to="/checkProtocol" className="LinkDecoration">
+            <Links>ACOMPANHAR PROTOCOLO</Links>
+          </Link>
           <Links>HOME</Links>
           <Links>SOBRE O PROJETO</Links>
         </Box2>

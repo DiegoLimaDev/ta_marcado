@@ -9,6 +9,7 @@ import SchedulingPage from './pages/Scheduling';
 import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import { ScheduleConfirmed } from './pages/ScheduleConfirmed';
+import { CheckProtocol } from './pages/CheckProtocol';
 
 const Container = styled.div`
   font-family: ${theme.font};
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/schedulingPage" element={<SchedulingPage />} />
             <Route path="/scheduleConfirmed" element={<ScheduleConfirmed />} />
+            <Route path="/checkProtocol" element={<CheckProtocol />} />
           </Routes>
           <Footer />
         </BrowserRouter>

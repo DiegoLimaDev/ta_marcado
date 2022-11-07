@@ -1,9 +1,12 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { theme } from '../utils/theme';
 
 import checking from '../assets/images/checking_protocol.svg';
-import { Icon } from '@iconify/react';
+import { InputWithSearchIcon } from '../components/InputWithSearchIcon';
+import { handleNumberInput } from '../components/HandleNumberInputs';
+import { ProtocolContainer } from '../components/ProtocolContainer';
+import { data } from '../components/mock';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
@@ -17,47 +20,62 @@ const Row = styled.div`
   flex-direction: row;
   margin: 0 auto;
   padding: 2rem;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 const Column = styled.div`
   flex-direction: column;
-  width: 30%;
+  width: 50%;
 `;
 
 const Image = styled.img`
-  width: auto;
-  height: auto;
-`;
-
-const Input = styled.input`
-  ${({ width }) => css`
-    background-color: ${theme.colors.auxiliar};
-    border: 0.5px solid;
-    border-color: ${theme.colors.darkBlue};
-    border-radius: 20px;
-    width: ${width}%;
-    height: 4%;
-    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
-    outline: none;
-  `}
-`;
-
-const IconContainer = styled.span`
-  position: fixed;
-  float: right;
+  width: 40rem;
+  height: 40rem;
 `;
 
 export const CheckProtocol = () => {
+  const [protocol, setProtocol] = useState('');
+  const [visible, setVisible] = useState(false);
+  const [informationData, setInformationData] = useState({});
+
+  const getDataByProtocol = (protocol) => {
+    if (protocol.length === 6) {
+      data.find((e) =>
+        e.protocol === protocol ? setInformationData(e) : null,
+      );
+    }
+  };
+
+  const handleEvent = (e, protocol) => {
+    if (e.key === 'Enter') {
+      getDataByProtocol(protocol);
+      setVisible(true);
+    }
+  };
+
   return (
     <Container>
       <Row>
         <Image src={checking} />
         <Column>
-          <Input type="text" width="80" placeholder="Pesquisar" />
-          <IconContainer>
-            <Icon icon="bi:search" width={20} height={20} />
-          </IconContainer>
+          <InputWithSearchIcon
+            width={25}
+            value={protocol}
+            onChange={(e) => {
+              handleNumberInput(setProtocol, e);
+              getDataByProtocol(protocol);
+            }}
+            onKeyPress={(e) => handleEvent(e, protocol)}
+            onClick={() => {
+              getDataByProtocol(protocol);
+              setVisible(true);
+            }}
+          />
+          <ProtocolContainer
+            data={informationData}
+            width={100}
+            visible={visible}
+          />
         </Column>
       </Row>
     </Container>

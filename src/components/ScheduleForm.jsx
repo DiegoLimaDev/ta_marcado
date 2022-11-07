@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
+import { handleNumberInput } from './HandleNumberInputs';
 
 const InsideRow = styled.div`
   ${({ checkbox }) => css`
@@ -37,7 +38,7 @@ const Input = styled.input`
     background-color: ${theme.colors.auxiliar};
     border: 0.5px solid;
     border-color: ${theme.colors.darkBlue};
-    border-radius: 20px;
+    border-radius: 5px;
     width: ${width}%;
     padding: 0.2rem 0.2rem 0.2rem 0.5rem;
     outline: none;
@@ -47,12 +48,8 @@ const Input = styled.input`
 export const ScheduleForm = () => {
   const [remote, setRemote] = useState('');
   const [reason, setReason] = useState('');
-  const [value, setValue] = useState('');
-
-  const handlechange = (e) => {
-    const result = e.target.value.replace(/\D/g, '');
-    setValue(result);
-  };
+  const [cpf, setCpf] = useState('');
+  const [phone, setPhone] = useState('');
 
   return (
     <>
@@ -69,8 +66,8 @@ export const ScheduleForm = () => {
               placeholder="CPF"
               label="CPF"
               width="100"
-              value={value}
-              onChange={handlechange}
+              value={cpf}
+              onChange={(e) => handleNumberInput(setCpf, e)}
             />
           </Column>
           <Column>
@@ -80,8 +77,8 @@ export const ScheduleForm = () => {
               placeholder="Telefone"
               label="Telefone"
               width="100"
-              value={value}
-              onChange={handlechange}
+              value={phone}
+              onChange={(e) => handleNumberInput(setPhone, e)}
             />
           </Column>
         </InsideRow>

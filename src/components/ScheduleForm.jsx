@@ -40,6 +40,7 @@ const Input = styled.input`
     border-radius: 20px;
     width: ${width}%;
     padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+    outline: none;
   `}
 `;
 

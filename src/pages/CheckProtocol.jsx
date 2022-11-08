@@ -7,6 +7,7 @@ import { InputWithSearchIcon } from '../components/InputWithSearchIcon';
 import { handleNumberInput } from '../components/HandleNumberInputs';
 import { ProtocolContainer } from '../components/ProtocolContainer';
 import { data } from '../components/mock';
+import { ProtocolNotFound } from '../components/ProtocolNotFound';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
@@ -35,21 +36,18 @@ const Image = styled.img`
 
 export const CheckProtocol = () => {
   const [protocol, setProtocol] = useState('');
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState('invisible');
   const [informationData, setInformationData] = useState({});
 
   const getDataByProtocol = (protocol) => {
-    if (protocol.length === 6) {
-      data.find((e) =>
-        e.protocol === protocol ? setInformationData(e) : null,
-      );
-    }
-  };
-
-  const handleEvent = (e, protocol) => {
-    if (e.key === 'Enter') {
-      getDataByProtocol(protocol);
-      setVisible(true);
+    let result;
+    if (data.find((e) => e.protocol === protocol)) {
+      result = data.find((e) => e.protocol === protocol);
+      setInformationData(result);
+      setVisible('visible');
+    } else {
+      setInformationData({});
+      setVisible('error');
     }
   };
 
@@ -61,21 +59,18 @@ export const CheckProtocol = () => {
           <InputWithSearchIcon
             width={25}
             value={protocol}
-            onChange={(e) => {
-              handleNumberInput(setProtocol, e);
-              getDataByProtocol(protocol);
+            onChange={(e) => handleNumberInput(setProtocol, e)}
+            onKeyPress={(e) => {
+              e.key === 'Enter' ? getDataByProtocol(protocol) : null;
             }}
-            onKeyPress={(e) => handleEvent(e, protocol)}
-            onClick={() => {
-              getDataByProtocol(protocol);
-              setVisible(true);
-            }}
+            onClick={() => getDataByProtocol(protocol)}
           />
           <ProtocolContainer
             data={informationData}
             width={100}
             visible={visible}
           />
+          <ProtocolNotFound visible={visible} />
         </Column>
       </Row>
     </Container>

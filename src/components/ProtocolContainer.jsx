@@ -22,7 +22,7 @@ const Box = styled.div`
     box-shadow: 4px 4px 4px 0 #000000;
     margin: 0 auto;
     display: block;
-    ${visible === true ? ContainerVisible() : ContainerInvisible()}
+    ${visible === 'visible' ? ContainerVisible() : ContainerInvisible()}
   `}
 `;
 
@@ -37,5 +37,5 @@ export const ProtocolContainer = ({ data, width, visible }) => {
 ProtocolContainer.propTypes = {
   data: P.object.isRequired,
   width: P.number,
-  visible: P.bool,
+  visible: P.string,
 };

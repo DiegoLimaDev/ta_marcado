@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import P from 'prop-types';
+import { theme } from '../utils/theme';
 
 const MenuVisible = () => css`
   visibility: visible;
@@ -15,19 +16,31 @@ const MenuInvisible = () => css`
 `;
 
 const Container = styled.div`
-  ${({ visible }) => css`
+  ${({ width, visible }) => css`
     ${visible === 'error' ? MenuVisible() : MenuInvisible()}
+    background-color: ${theme.colors.lightBlue};
+    box-shadow: 4px 4px 4px 0 #000000;
+    width: ${width}%;
+    margin: 0 auto;
+    display: block;
   `}
 `;
 
-export const ProtocolNotFound = ({ visible }) => {
+const Text = styled.p`
+  text-align: center;
+  font-size: ${theme.sizes.size2};
+  padding: 2rem;
+`;
+
+export const ProtocolNotFound = ({ visible, width }) => {
   return (
-    <Container visible={visible}>
-      <p>Protocolo não encontrado</p>
+    <Container visible={visible} width={width}>
+      <Text>Protocolo não encontrado</Text>
     </Container>
   );
 };
 
 ProtocolNotFound.propTypes = {
   visible: P.string,
+  width: P.string,
 };

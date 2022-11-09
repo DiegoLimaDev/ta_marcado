@@ -26,16 +26,23 @@ const Box = styled.div`
   `}
 `;
 
+const Text = styled.p`
+  font-size: ${theme.sizes.size1};
+  text-align: center;
+  padding: 1rem;
+`;
+
 export const ProtocolContainer = ({ data, width, visible }) => {
   return (
     <Box width={width} visible={visible}>
-      <p>{data.name}</p>
+      <Text>{data.name}</Text>
+      <Text>{`***.${data.cpf.slice(4, 11)}-**`}</Text>
     </Box>
   );
 };
 
 ProtocolContainer.propTypes = {
   data: P.object.isRequired,
-  width: P.number,
+  width: P.string,
   visible: P.string,
 };

@@ -55,9 +55,9 @@ export const ScheduleForm = () => {
     <>
       <Forms>
         <Text>NOME COMPLETO *</Text>
-        <Input type="text" placeholder="Nome" label="Nome" width="100" />
+        <Input type="text" placeholder="Nome" label="Nome" width="99" />
         <Text>EMAIL *</Text>
-        <Input type="text" placeholder="Email" label="email" width="100" />
+        <Input type="text" placeholder="Email" label="email" width="99" />
         <InsideRow>
           <Column>
             <Text>CPF *</Text>
@@ -65,7 +65,7 @@ export const ScheduleForm = () => {
               type="text"
               placeholder="CPF"
               label="CPF"
-              width="100"
+              width="98"
               value={cpf}
               onChange={(e) => handleNumberInput(setCpf, e)}
             />
@@ -76,7 +76,7 @@ export const ScheduleForm = () => {
               type="text"
               placeholder="Telefone"
               label="Telefone"
-              width="100"
+              width="98"
               value={phone}
               onChange={(e) => handleNumberInput(setPhone, e)}
             />
@@ -106,11 +106,11 @@ export const ScheduleForm = () => {
         <InsideRow>
           <Column>
             <Text>DATA *</Text>
-            <Input placeholder="Data" />
+            <Input placeholder="Data" width="98" />
           </Column>
           <Column>
             <Text>HORÁRIO *</Text>
-            <Input placeholder="Horário" />
+            <Input placeholder="Horário" width="98" />
           </Column>
         </InsideRow>
         <Text>MOTIVO DO ATENDIMENTO *</Text>

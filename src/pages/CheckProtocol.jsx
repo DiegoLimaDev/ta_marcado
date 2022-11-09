@@ -67,10 +67,10 @@ export const CheckProtocol = () => {
           />
           <ProtocolContainer
             data={informationData}
-            width={100}
+            width="100"
             visible={visible}
           />
-          <ProtocolNotFound visible={visible} />
+          <ProtocolNotFound visible={visible} width="75" />
         </Column>
       </Row>
     </Container>

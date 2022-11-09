@@ -45,7 +45,7 @@ export const data = [
   },
   {
     name: 'Lucas',
-    email: 'joao@joao.com',
+    email: 'amorimlucas@joao.com',
     cpf: '555.555.555-55',
     phone: '81997086223',
     type: 'Remoto',

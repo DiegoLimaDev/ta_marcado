@@ -26,6 +26,12 @@ const Box = styled.div`
   `}
 `;
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
+
 const Text = styled.p`
   font-size: ${theme.sizes.size1};
   text-align: center;
@@ -35,8 +41,18 @@ const Text = styled.p`
 export const ProtocolContainer = ({ data, width, visible }) => {
   return (
     <Box width={width} visible={visible}>
-      <Text>{data.name}</Text>
-      <Text>{`***.${data.cpf.slice(4, 11)}-**`}</Text>
+      <Row>
+        <Text>Nome: {data.name}</Text>
+        <Text>
+          CPF:{` `}
+          {visible === 'visible' ? `***.${data.cpf.slice(4, 11)}-**` : null}
+        </Text>
+      </Row>
+      <Row>
+        <Text>
+          {visible === 'visible' ? `****${data.email.slice(4)}` : null}
+        </Text>
+      </Row>
     </Box>
   );
 };

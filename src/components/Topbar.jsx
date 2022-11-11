@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${theme.colors.white};
-  /* margin: -1rem -1rem 0 -1rem; */
   padding: 2rem 2rem 0 2rem;
   min-height: 6rem;
 `;
@@ -72,6 +71,10 @@ const Box2 = styled.div`
 
   .LinkDecoration {
     text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
   }
 `;
 

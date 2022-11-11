@@ -1,12 +1,12 @@
 import React from 'react';
 
-import InitialPage from './Initial';
+import InitialPage from '../components/Initial';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <InitialPage />
-    </div>
+    </>
   );
 };
 

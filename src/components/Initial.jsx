@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
 
 import schedule from '../assets/images/schedule.svg';
-import { Button } from '../components/Buttons';
+import { Button } from './Buttons';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`

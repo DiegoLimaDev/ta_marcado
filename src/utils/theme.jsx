@@ -17,4 +17,7 @@ export const theme = {
     size3: '4rem',
     size4: '8rem',
   },
+  mediaQ: {
+    media1: '(max-width: 600px)',
+  },
 };

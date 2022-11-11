@@ -52,7 +52,7 @@ export const Button = ({
 
 Button.propTypes = {
   children: P.node.isRequired,
-  onClick: P.node,
+  onClick: P.func,
   width: P.string.isRequired,
   height: P.string.isRequired,
   marginT: P.string,

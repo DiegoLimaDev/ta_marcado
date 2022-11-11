@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import ReactInputMask from 'react-input-mask';
 import { theme } from '../utils/theme';
 import { handleNumberInput } from './HandleNumberInputs';
+
+const Forms = styled.form`
+  width: auto;
+  padding: 1rem;
+
+  .inputMask {
+    ${({ width }) => css`
+      background-color: ${theme.colors.auxiliar};
+      border: 0.5px solid;
+      border-color: ${theme.colors.darkBlue};
+      border-radius: 5px;
+      width: ${width}%;
+      padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+      outline: none;
+    `}
+  }
+`;
 
 const InsideRow = styled.div`
   ${({ checkbox }) => css`
@@ -26,11 +44,6 @@ const Text = styled.p`
     font-size: ${size === 'title' ? theme.sizes.size2 : theme.sizes.size1};
     text-align: ${align === 'title' ? 'center' : 'left'};
   `}
-`;
-
-const Forms = styled.form`
-  width: auto;
-  padding: 1rem;
 `;
 
 const Input = styled.input`
@@ -61,8 +74,10 @@ export const ScheduleForm = () => {
         <InsideRow>
           <Column>
             <Text>CPF *</Text>
-            <Input
+            <ReactInputMask
+              className="inputMask"
               type="text"
+              mask="999.999.999-99"
               placeholder="CPF"
               label="CPF"
               width="98"
@@ -72,8 +87,10 @@ export const ScheduleForm = () => {
           </Column>
           <Column>
             <Text>TELEFONE *</Text>
-            <Input
+            <ReactInputMask
+              className="inputMask"
               type="text"
+              mask="(99)99999-9999"
               placeholder="Telefone"
               label="Telefone"
               width="98"
@@ -106,11 +123,23 @@ export const ScheduleForm = () => {
         <InsideRow>
           <Column>
             <Text>DATA *</Text>
-            <Input placeholder="Data" width="98" />
+            <ReactInputMask
+              className="inputMask"
+              type="text"
+              mask="99/99/9999"
+              placeholder="Data"
+              width="98"
+            />
           </Column>
           <Column>
             <Text>HORÁRIO *</Text>
-            <Input placeholder="Horário" width="98" />
+            <ReactInputMask
+              className="inputMask"
+              type="text"
+              mask="99:99"
+              placeholder="Horário"
+              width="98"
+            />
           </Column>
         </InsideRow>
         <Text>MOTIVO DO ATENDIMENTO *</Text>

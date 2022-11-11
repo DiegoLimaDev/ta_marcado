@@ -70,7 +70,9 @@ const InitialPage = () => {
               </Link>
             </Button>
             <Button height="15" width="30" marginL="5rem">
-              <Text size="small">Cancelamento</Text>
+              <Link to="/cancelProtocol" className="LinkDecoration">
+                <Text size="small">Cancelamento</Text>
+              </Link>
             </Button>
           </CenterButtons>
         </Column>

@@ -10,6 +10,8 @@ import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import { ScheduleConfirmed } from './pages/ScheduleConfirmed';
 import { CheckProtocol } from './pages/CheckProtocol';
+import { CancelProtocol } from './pages/CancelProtocol';
+import { CanceledWithSuccess } from './pages/CanceledWithSuccess';
 
 const Container = styled.div`
   font-family: ${theme.font};
@@ -27,6 +29,11 @@ function App() {
             <Route path="/schedulingPage" element={<SchedulingPage />} />
             <Route path="/scheduleConfirmed" element={<ScheduleConfirmed />} />
             <Route path="/checkProtocol" element={<CheckProtocol />} />
+            <Route path="/cancelProtocol" element={<CancelProtocol />} />
+            <Route
+              path="/canceledWithSuccess"
+              element={<CanceledWithSuccess />}
+            />
           </Routes>
           <Footer />
         </BrowserRouter>

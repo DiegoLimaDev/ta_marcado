@@ -18,6 +18,8 @@ export const theme = {
     size4: '8rem',
   },
   mediaQ: {
-    media1: '(max-width: 600px)',
+    media1: '1000px',
+    media2: '999px',
+    media3: '400px',
   },
 };

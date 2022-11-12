@@ -21,6 +21,10 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 const Column = styled.div`
@@ -32,6 +36,11 @@ const CenterButtons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const Text = styled.p`
@@ -42,6 +51,15 @@ const Text = styled.p`
       ? theme.sizes.size2
       : theme.sizes.size4};
     color: ${footer === 'true' ? theme.colors.darkBlue : theme.colors.white};
+
+    @media (max-width: 480px) {
+      font-size: ${size === 'small'
+        ? '1rem'
+        : size === 'medium'
+        ? '2rem'
+        : '3rem'};
+      color: ${footer === 'true' ? theme.colors.darkBlue : theme.colors.white};
+    }
   `}
 `;
 
@@ -52,6 +70,12 @@ const TextAlign = styled.div`
 const Image = styled.img`
   width: auto;
   height: auto;
+
+  @media (max-width: 480px) {
+    width: 75%;
+    height: 75%;
+    margin: 6rem auto 0 auto;
+  }
 `;
 
 const InitialPage = () => {
@@ -64,12 +88,12 @@ const InitialPage = () => {
             <Text>TÁ MARCADO</Text>
           </TextAlign>
           <CenterButtons>
-            <Button height="15" width="30" marginR="5rem">
+            <Button height="15" width="30" marginR="2rem">
               <Link to="/schedulingPage" className="LinkDecoration">
                 <Text size="small">Agendar</Text>
               </Link>
             </Button>
-            <Button height="15" width="30" marginL="5rem">
+            <Button height="15" width="30" marginL="2rem">
               <Link to="/cancelProtocol" className="LinkDecoration">
                 <Text size="small">Cancelamento</Text>
               </Link>

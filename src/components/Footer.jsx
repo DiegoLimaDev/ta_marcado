@@ -10,6 +10,11 @@ const Container = styled.div`
   margin: 0 -0.5rem -0.5rem -0.5rem;
   width: auto;
   background-color: ${theme.colors.secondaryBlue};
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    justify-content: space-between;
+  }
 `;
 
 const Box = styled.div`
@@ -22,6 +27,12 @@ const Text = styled.p`
   font-size: ${theme.sizes.size1};
   color: ${theme.colors.darkBlue};
   margin-left: 1rem;
+
+  @media (max-width: 480px) {
+    margin-left: 0;
+    font-size: 0.5rem;
+    width: 50%;
+  }
 `;
 
 const Footer = () => {

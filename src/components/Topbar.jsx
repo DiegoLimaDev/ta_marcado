@@ -1,15 +1,22 @@
 import React from 'react';
 import { theme } from '../utils/theme';
 import styled from 'styled-components';
+import MediaQuery from 'react-responsive';
 
 import logo from '../assets/images/logo.jpeg';
 import logopd from '../assets/images/logo_pd.svg';
 import { Link } from 'react-router-dom';
+import { TopbarMobile } from './TopbarMobile';
 
 const Container = styled.div`
   background-color: ${theme.colors.white};
   padding: 2rem 2rem 0 2rem;
   min-height: 6rem;
+
+  @media (max-width: 1000px) {
+    padding: 0;
+    height: auto;
+  }
 `;
 
 const Row = styled.div`
@@ -18,7 +25,7 @@ const Row = styled.div`
   width: 100%;
 `;
 
-const Links = styled.div`
+const Links = styled.p`
   color: ${theme.colors.darkBlue};
   font-size: ${theme.sizes.size2};
   font-weight: bold;
@@ -36,7 +43,6 @@ const Links = styled.div`
     width: 0;
     height: 0.2rem;
     top: 100%;
-    /* right: 80%; */
     left: 50%;
     background-color: ${theme.colors.darkBlue};
   }
@@ -68,35 +74,37 @@ const Box2 = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
 
   .LinkDecoration {
     text-decoration: none;
-  }
-
-  @media (max-width: 600px) {
-    flex-direction: column;
   }
 `;
 
 const Topbar = () => {
   return (
     <Container>
-      <Row>
-        <Box1>
-          <Images src={logo} />
-          <Images src={logopd} />
-        </Box1>
-        <Box2>
-          <Link to="/" className="LinkDecoration">
+      <MediaQuery minWidth={theme.mediaQ.media1}>
+        <Row>
+          <Box1>
+            <Images src={logo} />
+            <Images src={logopd} />
+          </Box1>
+          <Box2>
+            <Link to="/" className="LinkDecoration">
+              <Links>HOME</Links>
+            </Link>
+            <Link to="/checkProtocol" className="LinkDecoration">
+              <Links>PROTOCOLO</Links>
+            </Link>
             <Links>HOME</Links>
-          </Link>
-          <Link to="/checkProtocol" className="LinkDecoration">
-            <Links>ACOMPANHAR PROTOCOLO</Links>
-          </Link>
-          <Links>HOME</Links>
-          <Links>SOBRE O PROJETO</Links>
-        </Box2>
-      </Row>
+            <Links>SOBRE O PROJETO</Links>
+          </Box2>
+        </Row>
+      </MediaQuery>
+      <MediaQuery maxWidth={theme.mediaQ.media1}>
+        <TopbarMobile />
+      </MediaQuery>
     </Container>
   );
 };

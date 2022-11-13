@@ -22,7 +22,7 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: space-around;
 
-  @media (max-width: 480px) {
+  @media (max-width: ${theme.mediaQ.media2}) {
     flex-direction: column;
   }
 `;
@@ -37,7 +37,7 @@ const CenterButtons = styled.div`
   flex-direction: row;
   justify-content: space-around;
 
-  @media (max-width: 480px) {
+  @media (max-width: ${theme.mediaQ.media2}) {
     width: 100%;
     justify-content: center;
   }
@@ -52,7 +52,7 @@ const Text = styled.p`
       : theme.sizes.size4};
     color: ${footer === 'true' ? theme.colors.darkBlue : theme.colors.white};
 
-    @media (max-width: 480px) {
+    @media (max-width: ${theme.mediaQ.media2}) {
       font-size: ${size === 'small'
         ? '1rem'
         : size === 'medium'
@@ -71,7 +71,7 @@ const Image = styled.img`
   width: auto;
   height: auto;
 
-  @media (max-width: 480px) {
+  @media (max-width: ${theme.mediaQ.media2}) {
     width: 75%;
     height: 75%;
     margin: 6rem auto 0 auto;

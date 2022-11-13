@@ -19,7 +19,7 @@ export const theme = {
   },
   mediaQ: {
     media1: '1000px',
-    media2: '999px',
+    media2: '768px',
     media3: '400px',
   },
 };

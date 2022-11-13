@@ -11,7 +11,7 @@ const Container = styled.div`
   width: auto;
   background-color: ${theme.colors.secondaryBlue};
 
-  @media (max-width: 480px) {
+  @media (max-width: ${theme.mediaQ.media2}) {
     padding: 0.5rem;
     justify-content: space-between;
   }
@@ -28,7 +28,7 @@ const Text = styled.p`
   color: ${theme.colors.darkBlue};
   margin-left: 1rem;
 
-  @media (max-width: 480px) {
+  @media (max-width: ${theme.mediaQ.media2}) {
     margin-left: 0;
     font-size: 0.5rem;
     width: 50%;

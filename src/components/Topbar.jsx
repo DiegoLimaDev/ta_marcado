@@ -84,7 +84,7 @@ const Box2 = styled.div`
 const Topbar = () => {
   return (
     <Container>
-      <MediaQuery minWidth={theme.mediaQ.media1}>
+      <MediaQuery minWidth={theme.mediaQ.media2}>
         <Row>
           <Box1>
             <Images src={logo} />
@@ -102,7 +102,7 @@ const Topbar = () => {
           </Box2>
         </Row>
       </MediaQuery>
-      <MediaQuery maxWidth={theme.mediaQ.media1}>
+      <MediaQuery maxWidth={theme.mediaQ.media2}>
         <TopbarMobile />
       </MediaQuery>
     </Container>

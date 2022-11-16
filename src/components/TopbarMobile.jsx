@@ -4,26 +4,9 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
 
-import logo from '../assets/images/logo.jpeg';
-import logopd from '../assets/images/logo_pd.svg';
+// import logo from '../assets/images/logo.jpeg';
+// import logopd from '../assets/images/logo_pd.svg';
 import { Drawer } from '@mui/material';
-import { Css } from '@mui/icons-material';
-
-const MenuVisible = () => css`
-  visibility: visible;
-  width: 100%;
-  height: auto;
-  transform: translate3d(0vw, 0, 0);
-  transition: all 200ms ease-in-out;
-`;
-
-const MenuInvisible = () => css`
-  visibility: hidden;
-  width: 0;
-  height: 0;
-  transform: translate3d(-100vw, 0, 0);
-  transition: all 200ms ease-in-out;
-`;
 
 const BoxMobile = styled.div`
   ${() => css`
@@ -33,8 +16,6 @@ const BoxMobile = styled.div`
     background-color: ${theme.colors.lightBlue};
     height: 100%;
     width: 100%;
-    padding: 0 2rem;
-    margin-left: 1rem;
 
     .LinkDecoration {
       text-decoration: none;
@@ -43,6 +24,12 @@ const BoxMobile = styled.div`
     .icon {
       align-self: flex-start;
       padding-top: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .row {
+      padding: 0 3rem 0 0.5rem;
+      /* margin-left: 1rem; */
     }
   `}
 `;
@@ -84,10 +71,10 @@ const Row = styled.div`
   align-items: center;
 `;
 
-const Images = styled.img`
-  width: 4rem;
-  height: 4rem;
-`;
+// const Images = styled.img`
+//   width: 4rem;
+//   height: 4rem;
+// `;
 
 const IconContainer = styled.div`
   cursor: pointer;
@@ -108,6 +95,9 @@ const MyDrawer = styled(Drawer)(() => css``);
 
 export const TopbarMobile = () => {
   const [visible, setVisible] = useState(false);
+
+  const icons = ['ant-design:home-outlined', 'ant-design:search-outlined'];
+  const urls = ['/', '/checkProtocol', '/', '/'];
 
   return (
     <>
@@ -137,128 +127,26 @@ export const TopbarMobile = () => {
             <Images src={logo} />
             <Images src={logopd} />
           </Row> */}
-          <Row>
-            <Icon
-              icon="ant-design:home-outlined"
-              width={20}
-              height={20}
-              color={theme.colors.darkBlue}
-            />
-            <Link
-              to="/"
-              className="LinkDecoration"
-              onClick={() => setVisible(false)}
-              role="button"
-            >
-              <Links>HOME</Links>
-            </Link>
-          </Row>
-          <Row>
-            <Icon
-              icon="ant-design:search-outlined"
-              width={20}
-              height={20}
-              color={theme.colors.darkBlue}
-            />
-
-            <Link
-              to="/checkProtocol"
-              className="LinkDecoration"
-              onClick={() => setVisible(false)}
-              role="button"
-            >
-              <Links>PROTOCOLO</Links>
-            </Link>
-          </Row>
-          <Links>HOME</Links>
-          <Links>SOBRE O PROJETO</Links>
+          {['Home', 'Protocolo', 'Home', 'Sobre o Projeto'].map((e, index) => (
+            <Row key={index} className="row">
+              <Icon
+                icon={icons[index]}
+                width={20}
+                height={20}
+                color={theme.colors.darkBlue}
+              />
+              <Link
+                to={urls[index]}
+                className="LinkDecoration"
+                onClick={() => setVisible(false)}
+                role="button"
+              >
+                <Links>{e}</Links>
+              </Link>
+            </Row>
+          ))}
         </BoxMobile>
       </MyDrawer>
     </>
   );
 };
-
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Drawer from '@mui/material/Drawer';
-// import Button from '@mui/material/Button';
-// import List from '@mui/material/List';
-// import Divider from '@mui/material/Divider';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
-
-// export const TopbarMobile = () => {
-//   const [state, setState] = React.useState({
-//     top: false,
-//     left: false,
-//     bottom: false,
-//     right: false,
-//   });
-
-//   const toggleDrawer = (anchor, open) => (event) => {
-//     if (
-//       event.type === 'keydown' &&
-//       (event.key === 'Tab' || event.key === 'Shift')
-//     ) {
-//       return;
-//     }
-
-//     setState({ ...state, [anchor]: open });
-//   };
-
-//   const list = (anchor) => (
-//     <Box
-//       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-//       role="presentation"
-//       onClick={toggleDrawer(anchor, false)}
-//       onKeyDown={toggleDrawer(anchor, false)}
-//     >
-//       <List>
-//         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-//           <ListItem key={text} disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-//               </ListItemIcon>
-//               <ListItemText primary={text} />
-//             </ListItemButton>
-//           </ListItem>
-//         ))}
-//       </List>
-//       <Divider />
-//       <List>
-//         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-//           <ListItem key={text} disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-//               </ListItemIcon>
-//               <ListItemText primary={text} />
-//             </ListItemButton>
-//           </ListItem>
-//         ))}
-//       </List>
-//     </Box>
-//   );
-
-//   return (
-//     <div>
-//       {['left', 'right', 'top', 'bottom'].map((anchor) => (
-//         <React.Fragment key={anchor}>
-//           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-//           <Drawer
-//             anchor={anchor}
-//             open={state[anchor]}
-//             onClose={toggleDrawer(anchor, false)}
-//           >
-//             {list(anchor)}
-//           </Drawer>
-//         </React.Fragment>
-//       ))}
-//     </div>
-//   );
-// };

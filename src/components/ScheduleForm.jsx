@@ -3,6 +3,9 @@ import styled, { css } from 'styled-components';
 import ReactInputMask from 'react-input-mask';
 import { theme } from '../utils/theme';
 import { handleNumberInput } from './HandleNumberInputs';
+import { Button } from './Buttons';
+import { Link } from 'react-router-dom';
+import { handleTextInput } from './HandlerTextInput';
 
 const Forms = styled.form`
   width: auto;
@@ -58,19 +61,60 @@ const Input = styled.input`
   `}
 `;
 
+const ButtonDiv = styled.div`
+  display: block;
+  margin: 0 auto;
+  justify-content: space-around;
+`;
+
 export const ScheduleForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [remote, setRemote] = useState('');
+  const [data, setData] = useState('');
+  const [time, setTime] = useState('');
   const [reason, setReason] = useState('');
   const [cpf, setCpf] = useState('');
   const [phone, setPhone] = useState('');
+
+  const isDisabled = () => {
+    if (
+      name === '' ||
+      email === '' ||
+      remote === '' ||
+      data.length < 8 ||
+      time.length < 4 ||
+      reason === '' ||
+      cpf.length < 11 ||
+      phone.length < 11
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <>
       <Forms>
         <Text>NOME COMPLETO *</Text>
-        <Input type="text" placeholder="Nome" label="Nome" width="99" />
+        <Input
+          type="text"
+          placeholder="Nome"
+          label="Nome"
+          width="99"
+          value={name}
+          onChange={(e) => handleTextInput(setName, e)}
+        />
         <Text>EMAIL *</Text>
-        <Input type="text" placeholder="Email" label="email" width="99" />
+        <Input
+          type="text"
+          placeholder="Email"
+          label="email"
+          width="99"
+          value={email}
+          onChange={(e) => handleTextInput(setEmail, e)}
+        />
         <InsideRow>
           <Column>
             <Text>CPF *</Text>
@@ -129,6 +173,8 @@ export const ScheduleForm = () => {
               mask="99/99/9999"
               placeholder="Data"
               width="98"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
             />
           </Column>
           <Column>
@@ -139,6 +185,8 @@ export const ScheduleForm = () => {
               mask="99:99"
               placeholder="Horário"
               width="98"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
             />
           </Column>
         </InsideRow>
@@ -195,6 +243,27 @@ export const ScheduleForm = () => {
           />
           <Text>Outros</Text>
         </InsideRow>
+        <ButtonDiv>
+          <Button
+            width="40"
+            height="20"
+            marginB="2rem"
+            marginL="auto"
+            marginR="auto"
+            disabled={isDisabled()}
+          >
+            <Link
+              to={isDisabled() ? '' : '/scheduleConfirmed'}
+              className="linkDecoration"
+            >
+              <Text color={isDisabled() ? '' : 'title'} align="title">
+                {isDisabled()
+                  ? 'Preencha todos os campos'
+                  : 'Confirmar agendamento'}
+              </Text>
+            </Link>
+          </Button>
+        </ButtonDiv>
       </Forms>
     </>
   );

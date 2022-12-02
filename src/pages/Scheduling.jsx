@@ -3,9 +3,7 @@ import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
 
 import diary from '../assets/images/diary.svg';
-import { Button } from '../components/Buttons';
 import { ScheduleForm } from '../components/ScheduleForm';
-import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   background-color: ${theme.colors.secondaryBlue};
@@ -56,12 +54,6 @@ const Text = styled.p`
   `}
 `;
 
-const ButtonDiv = styled.div`
-  display: block;
-  margin: 0 auto;
-  justify-content: space-around;
-`;
-
 const SchedulingPage = () => {
   return (
     <>
@@ -75,21 +67,6 @@ const SchedulingPage = () => {
               </Text>
             </GradientBox>
             <ScheduleForm />
-            <ButtonDiv>
-              <Button
-                width="40"
-                height="20"
-                marginB="2rem"
-                marginL="auto"
-                marginR="auto"
-              >
-                <Link to="/scheduleConfirmed" className="linkDecoration">
-                  <Text color="title" align="title">
-                    Confirmar agendamento
-                  </Text>
-                </Link>
-              </Button>
-            </ButtonDiv>
             <Text align="title">
               CAMPOS COM A SINALIZAÇÃO * SÃO DE PREENCHIMENTO OBRIGATÓRIO
             </Text>

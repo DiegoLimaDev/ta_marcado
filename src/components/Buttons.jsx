@@ -4,8 +4,10 @@ import { theme } from '../utils/theme';
 import P from 'prop-types';
 
 const ButtonStyle = styled.button`
-  ${({ width, height, marginT, marginR, marginB, marginL }) => css`
-    background-color: ${theme.colors.fourthBlue};
+  ${({ width, height, marginT, marginR, marginB, marginL, disabled }) => css`
+    background-color: ${disabled
+      ? theme.colors.auxiliar
+      : theme.colors.fourthBlue};
     color: ${theme.colors.white};
     border-radius: 200px;
     width: ${width}%;
@@ -34,6 +36,7 @@ export const Button = ({
   marginR,
   marginB,
   marginL,
+  disabled,
 }) => {
   return (
     <ButtonStyle
@@ -44,6 +47,7 @@ export const Button = ({
       marginB={marginB}
       marginL={marginL}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </ButtonStyle>
@@ -59,4 +63,5 @@ Button.propTypes = {
   marginR: P.string,
   marginB: P.string,
   marginL: P.string,
+  disabled: P.any,
 };

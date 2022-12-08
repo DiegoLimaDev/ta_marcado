@@ -15,7 +15,7 @@ const BoxMobile = styled.div`
     align-self: center;
     background-color: ${theme.colors.lightBlue};
     height: 100%;
-    width: 100%;
+    width: 15rem;
 
     .LinkDecoration {
       text-decoration: none;

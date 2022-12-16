@@ -144,26 +144,18 @@ export const ScheduleForm = () => {
           </Column>
         </InsideRow>
         <Text>TIPO DE ATENDIMENTO *</Text>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={remote === 'remote' ? true : false}
-            onClick={() =>
-              remote !== 'remote' ? setRemote('remote') : setRemote('')
-            }
-          />
-          <Text>Remoto</Text>
-        </InsideRow>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={remote === 'presential' ? true : false}
-            onClick={() =>
-              remote !== 'presential' ? setRemote('presential') : setRemote('')
-            }
-          />
-          <Text>Presencial</Text>
-        </InsideRow>
+        {['Remoto', 'Presencial'].map((e, index) => (
+          <div key={index}>
+            <InsideRow checkbox="checkbox">
+              <Input
+                type="checkbox"
+                checked={remote === e ? true : false}
+                onChange={() => (remote !== e ? setRemote(e) : setRemote(''))}
+              />
+              <Text>{e}</Text>
+            </InsideRow>
+          </div>
+        ))}
         <InsideRow>
           <Column>
             <Text>DATA *</Text>
@@ -191,58 +183,20 @@ export const ScheduleForm = () => {
           </Column>
         </InsideRow>
         <Text>MOTIVO DO ATENDIMENTO *</Text>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={reason === 'declarations' ? true : false}
-            onClick={() =>
-              reason !== 'declarations'
-                ? setReason('declarations')
-                : setReason('')
-            }
-          />
-          <Text>Declarações</Text>
-        </InsideRow>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={reason === 'vem' ? true : false}
-            onClick={() =>
-              reason !== 'vem' ? setReason('vem') : setReason('')
-            }
-          />
-          <Text>VEM</Text>
-        </InsideRow>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={reason === 'studentID' ? true : false}
-            onClick={() =>
-              reason !== 'studentID' ? setReason('studentID') : setReason('')
-            }
-          />
-          <Text>Carteria de Estudante</Text>
-        </InsideRow>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={reason === 'siepe' ? true : false}
-            onClick={() =>
-              reason !== 'siepe' ? setReason('siepe') : setReason('')
-            }
-          />
-          <Text>SIEPE</Text>
-        </InsideRow>
-        <InsideRow checkbox="checkbox">
-          <Input
-            type="checkbox"
-            checked={reason === 'others' ? true : false}
-            onClick={() =>
-              reason !== 'others' ? setReason('others') : setReason('')
-            }
-          />
-          <Text>Outros</Text>
-        </InsideRow>
+        {['Declarações', 'VEM', 'Carteira de Estudante', 'SIEPE', 'Outros'].map(
+          (e, index) => (
+            <div key={index}>
+              <InsideRow checkbox="checkbox">
+                <Input
+                  type="checkbox"
+                  checked={reason === e ? true : false}
+                  onChange={() => (reason !== e ? setReason(e) : setReason(''))}
+                />
+                <Text>{e}</Text>
+              </InsideRow>
+            </div>
+          ),
+        )}
         <ButtonDiv>
           <Button
             width="40"

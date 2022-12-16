@@ -10,9 +10,8 @@ import { TopbarMobile } from './TopbarMobile';
 
 const Container = styled.div`
   background-color: ${theme.colors.white};
-  padding: 2rem 2rem 0 2rem;
+  /* padding: 2rem 2rem 0 2rem; */
   min-height: 6rem;
-
   @media (max-width: 1000px) {
     padding: 0;
     height: auto;

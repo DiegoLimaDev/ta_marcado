@@ -26,7 +26,7 @@ function App() {
           <Topbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/ta_marcado" element={<Home />}/>
+            <Route path="/ta_marcado" element={<Home />} />
             <Route path="/schedulingPage" element={<SchedulingPage />} />
             <Route path="/scheduleConfirmed" element={<ScheduleConfirmed />} />
             <Route path="/checkProtocol" element={<CheckProtocol />} />

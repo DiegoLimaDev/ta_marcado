@@ -2,6 +2,8 @@
   "name": "ta_marcado",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://diegolimadev.github.io/ta_marcado",
+  "postbuild": "mv build ./docs/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

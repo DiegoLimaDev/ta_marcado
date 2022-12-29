@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/ta_marcado/static/js/main.90ed67a5.js",
+    "static/js/787.b6551408.chunk.js": "/ta_marcado/static/js/787.b6551408.chunk.js",
+    "static/media/logo_pd.svg": "/ta_marcado/static/media/logo_pd.e749c63c7a446fd8c4998f19e6828c1f.svg",
+    "static/media/logo.jpeg": "/ta_marcado/static/media/logo.9f93bf4f01fbc82fe841.jpeg",
+    "static/media/diary.svg": "/ta_marcado/static/media/diary.1e63fdd9da0ef8d4c9c651b1076c8705.svg",
+    "static/media/searching.svg": "/ta_marcado/static/media/searching.c4ac23b903f53dbe74e54f589a2b9154.svg",
+    "static/media/celebration.svg": "/ta_marcado/static/media/celebration.c2dde2ffa624ec6c99ccec45e030cbc7.svg",
+    "static/media/schedule.svg": "/ta_marcado/static/media/schedule.61c4a6046f9ae21bba65460cae971b2b.svg",
+    "static/media/canceled.svg": "/ta_marcado/static/media/canceled.0f0124a8ae3741196ca3cb994de8aa54.svg",
+    "static/media/checking_protocol.svg": "/ta_marcado/static/media/checking_protocol.7fbc926563c585005376d963236c5cf8.svg",
+    "index.html": "/ta_marcado/index.html",
+    "main.90ed67a5.js.map": "/ta_marcado/static/js/main.90ed67a5.js.map",
+    "787.b6551408.chunk.js.map": "/ta_marcado/static/js/787.b6551408.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.90ed67a5.js"
+  ]
+}
